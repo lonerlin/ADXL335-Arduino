@@ -12,6 +12,7 @@ float readX()
 float readY()
 float readZ()
 void setCalibrationOffset(float calibration_offset_x, float calibration_offset_y, float calibration_offset_z);
+void setZeroGVoltage(float zero_g_voltage_xy, float zero_g_voltage_z);
 ```
 
 Create an instance of the class, and read simply read the values using the read methods.
