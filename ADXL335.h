@@ -27,9 +27,9 @@ class ADXL335
         float _volts_per_unit;
 
         // Constants from the datasheet
-        const float ZERO_G_VOLTAGE_XY = 1.6;
-        const float ZERO_G_VOLTAGE_Z = 1.67;
-        const float VOLTS_PER_G = 0.330;
+        float ZERO_G_VOLTAGE_XY = 1.6;
+        float ZERO_G_VOLTAGE_Z = 1.67;
+        float VOLTS_PER_G = 0.330;
 
         // Calibration values
         float _CALIBRATION_OFFSET_X = 0.0;
