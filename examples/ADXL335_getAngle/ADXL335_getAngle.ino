@@ -1,7 +1,7 @@
 /*
  * ADXL335_example.ino - Example for ADXL335 library
- * Written by MrTijn/Tijndagamer
- * Copyright (c) 2016 MrTijn/Tijndagamer
+ * Written by LIN
+ * Copyright (c) 2017 LIN
  * Released under the MIT license
  */
 
