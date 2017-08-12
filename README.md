@@ -1,3 +1,7 @@
+#修改和添加
+
+添加函数getAngle，该函数可以返回ADXL335在X,Y,Z三个方向的倾斜角度
+
 # ADXL335
 
 A simple library to read values from an ADXL335 analog accelerometer.
