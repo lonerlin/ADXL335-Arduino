@@ -43,24 +43,54 @@ void ADXL335::setCalibrationOffset(float calibration_offset_x, float calibration
     _CALIBRATION_OFFSET_Z = calibration_offset_z;
 }
 
-void ADXL335::setZeroGVoltage(float zero_g_voltage_xy, float zero_g_voltage_z)
+void ADXL335::setZeroGVoltage(float zero_g_voltage_x,float zero_g_voltage_y, float zero_g_voltage_z)
 {
-    ZERO_G_VOLTAGE_XY = zero_g_voltage_xy;
+    ZERO_G_VOLTAGE_X = zero_g_voltage_x;
+    ZERO_G_VOLTAGE_Y = zero_g_voltage_y;
     ZERO_G_VOLTAGE_Z = zero_g_voltage_z;
 }
 
 float ADXL335::readX()
 {
-    return calculateAcceleration(_xpin, ZERO_G_VOLTAGE_XY, _CALIBRATION_OFFSET_X);
+    return calculateAcceleration(_xpin, ZERO_G_VOLTAGE_X, _CALIBRATION_OFFSET_X);
 }
 
 float ADXL335::readY()
 {
-    return calculateAcceleration(_ypin, ZERO_G_VOLTAGE_XY, _CALIBRATION_OFFSET_Y);
+    return calculateAcceleration(_ypin, ZERO_G_VOLTAGE_Y, _CALIBRATION_OFFSET_Y);
 }
 
 float ADXL335::readZ()
 {
     return calculateAcceleration(_zpin, ZERO_G_VOLTAGE_Z, _CALIBRATION_OFFSET_Z);
+}
+int ADXL335::getAngle(int aixs)
+{
+    float tmp;
+    float Ax=readX();
+    float Ay=readY();
+    float Az=readZ();
+    switch (aixs)
+    {
+        case 0 :
+            return limitAngle((atan(Ax / sqrt(Ay*Ay + Az*Az))) *180/PI);
+        case 1 :
+             return limitAngle((atan(Ay / sqrt(Ax*Ax + Az*Az))) *180/PI);
+        case 2 :
+             return limitAngle((atan(Az / sqrt(Ay*Ay + Ax*Ax))) *180/PI);
+        default:
+            return -1000;
+    }
+}
+int ADXL335::limitAngle(int angle)
+{
+    int x;
+    if(angle>90)x=90;
+    else
+    {
+        if(angle<-90)x=-90;
+        else x=angle;
+    }
+    return x;
 }
 
