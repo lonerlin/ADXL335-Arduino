@@ -35,7 +35,7 @@ class ADXL335
         float _volts_per_unit;
 
         // Constants from the datasheet
-        float ZERO_G_VOLTAGE_X = 1.62;
+        float ZERO_G_VOLTAGE_X = 1.63;
         float ZERO_G_VOLTAGE_Y = 1.62;
         float ZERO_G_VOLTAGE_Z = 1.64;
         float VOLTS_PER_G = 0.330;

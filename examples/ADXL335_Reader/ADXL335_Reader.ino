@@ -7,7 +7,7 @@
 
 #include <ADXL335.h>
 
-ADXL335 adxl335(A0, A1, A2, 3.3);
+ADXL335 adxl335(A0, A1, A2, 5);
 
 void setup()
 {
@@ -23,5 +23,5 @@ void loop()
     Serial.print(adxl335.readZ());
     Serial.print("\t");
     Serial.println();
-    delay(500); 
+    delay(500);
 }
